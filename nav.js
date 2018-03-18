@@ -1,13 +1,6 @@
  (function(){
 
-	var nav = document.getElementsByTagName('nav');
-	var div = document.getElementsByTagName('div');
-    console.log(nav);
-    console.log(div);
-	var nav_1 = document.getElementsByTagName('nav')[0];
-	var div_1 = document.getElementsByTagName('div')[0];
-    console.log(nav_1);
-    console.log(div_1);
+	var nav = document.getElementsByTagName('nav')[0];
 	var ul = document.createElement('ul');
 
 	var full_url = window.location.href;
@@ -36,17 +29,38 @@
 		li.style.display = 'inline-block';
 
 		li.onmouseover = function(){
-			a.style.color = 'black';
+			a.style.color = 'white';
 			a.style.fontWeight = 'bolder';
 		};
 		li.onmouseout = function(){
-			a.style.color = 'black'; 
-			a.style.fontWeight = font_weight;
+			a.style.color = 'white'; 
+			a.style.fontWeight = 'normal';
 		};
 
 		li.appendChild(a);
 		ul.appendChild(li);
 	}
-		nav.appendChild(ul);
+
+	nav.appendChild(ul);
+
+	// media query event handler
+	if (window.matchMedia) {
+	  const mq = window.matchMedia("(min-width: 1060px)");
+	  mq.addListener(WidthChange);
+	  WidthChange(mq);
+	}
+
+	// media query change
+	function WidthChange(mq) {
+	  var navi = document.getElementsByTagName('nav')[0];
+	  if (mq.matches) {
+			navi.style.backgroundColor = 'pink';
+		// window width is at least 500px
+	  } else {
+			navi.style.backgroundColor = 'olive';
+		// window width is less than 500px
+	  }
+
+	}
 
 })();

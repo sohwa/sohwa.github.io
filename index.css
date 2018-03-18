@@ -1,0 +1,69 @@
+
+/* ==============  Common Css Start ============= >>> */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+html, body { 
+	padding:        0;
+	margin:         0;
+	max-width:      100%;
+	overflow-x:     hidden;
+	font-family:   'Noto Sans Kr' , arial; 
+	background-color: black;
+}
+
+#foundation { 
+	background-color: #212121;
+	padding:0;
+	color:gray;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration:none;
+	color: white;
+}
+
+button {
+	outline: none;
+	border: none;
+}
+/* <<< ==============  Common Css End ============= */
+
+
+/* ==============  Media Screen Start ============= >>> */
+
+/*   Mobile   */
+@media screen and  (max-width: 1060px) {
+	#foundation { 
+		font-size:  30px;
+		margin:0;
+		padding:0;
+		width:100%;
+	}
+
+	ul.sub-navi {
+		display:block;
+	}
+}
+
+/*   Web page   */
+@media screen and (min-width:1061px) {
+	#foundation { 
+		font-size:  20px;
+		margin:0 auto;
+		width:80%;
+	}
+
+	ul.sub-navi {
+		display:none;
+	}
+
+	ul.navi li {
+		display:inline;
+	}
+}
+/* <<< ==============  Media Screen End ============= */

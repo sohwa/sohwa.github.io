@@ -1,46 +1,77 @@
  (function(){
 
-	var nav = document.getElementsByTagName('nav')[0];
+	var navi_list = [ 
+					{'name':'소화갤러리', 
+					 'sub_navi':[
+								  {'name':'갤러리소개', 'href': 'gallery/intro.html'},
+								  {'name':'작가소개',	'href': ''},
+								  {'name':'오시는길',	'href': ''},
+								  {'name':'주변안내',	'href': ''}
+								]
+					},
+					{'name':'작품', 
+					 'sub_navi':[
+								  {'name':'전통민화', 'href': ''},
+								  {'name':'응용민화', 'href': ''},
+								  {'name':'공예민화', 'href': ''},
+								  {'name':'관화',	  'href': ''}
+								]
+					},
+					{'name':'민화교실', 
+					 'sub_navi':[
+								  {'name':'수업알림', 'href': ''},
+								  {'name':'수업사진', 'href': ''}
+								]
+					},
+					{'name':'소화소식', 
+					 'sub_navi':[
+								  {'name':'전시안내', 'href': ''},
+								  {'name':'보도자료', 'href': ''},
+								  {'name':'소화풍경', 'href': ''}
+								]
+					}
+
+					];
+
 	var ul = document.createElement('ul');
-
-	var full_url = window.location.href;
-	var pathname_index_num = full_url.indexOf(window.location.pathname);
-	var admin_server_url = full_url.substring(0, pathname_index_num +1) ;
-
-	var nav_list = [{'url': admin_server_url + "pos" ,              'menu_name':"POS" },
-					{'url': admin_server_url + "exchange" ,			'menu_name':"교환-환불 내역" },
-					{'url': admin_server_url + "invoice" ,			'menu_name':"송장" },
-					{'url': admin_server_url + "delivery" ,         'menu_name':"배송상황" },
-					{'url': admin_server_url + "manufacturer" ,     'menu_name':"제조사 주문" },
-					{'url': admin_server_url + "optical-store" ,    'menu_name':"교환매장 정보" },
-					{'url': admin_server_url + "message" ,          'menu_name':"문자정보" }];
-
-	nav_list.forEach(renderMenuList);
-
-	function renderMenuList(element, index, arr) {
-		var cur_url = window.location.href;
-		var a = document.createElement('a');
-		a.href = element.url;
-		a.innerHTML = element.menu_name;
-		a.style.textDecoration = 'none';
+	for(var i in navi_list){ 
+		var menu_info =  navi_list[i];
 
 		var li = document.createElement('li');
-		li.setAttribute('class','item');
-		li.style.display = 'inline-block';
+		li.innerHTML = menu_info.name; 
 
-		li.onmouseover = function(){
-			a.style.color = 'white';
-			a.style.fontWeight = 'bolder';
-		};
-		li.onmouseout = function(){
-			a.style.color = 'white'; 
-			a.style.fontWeight = 'normal';
-		};
+		var sub_ul = document.createElement('ul');
+		for(var k in menu_info.sub_navi){
+			var sub_menu = menu_info.sub_navi[k]; 
 
-		li.appendChild(a);
-		ul.appendChild(li);
+			var a = document.createElement('a');
+			a.href		= sub_menu.href;
+			a.innerHTML = sub_menu.name;
+			a.style.textDecoration = 'none';
+
+			var sub_li = document.createElement('li');
+			sub_li.setAttribute('class','item');
+			sub_li.style.display = 'inline-block';
+			sub_li.style.margin = '10px';
+
+			sub_li.onmouseover = function(){
+				a.style.color = 'white';
+				a.style.fontWeight = 'bolder';
+			};
+			sub_li.onmouseout = function(){
+				a.style.color = 'white'; 
+				a.style.fontWeight = 'normal';
+			};
+
+			sub_li.appendChild(a);
+			sub_ul.appendChild(sub_li);
+		}
+
+		li.appendChild(sub_ul);
+		ul.append(li);
 	}
 
+	var nav = document.getElementsByTagName('nav')[0];
 	nav.appendChild(ul);
 
 	// media query event handler

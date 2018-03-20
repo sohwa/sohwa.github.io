@@ -16,16 +16,6 @@ html, body {
 	color:gray;
 }
 
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-a {
-	text-decoration:none;
-	color: white;
-}
 
 button {
 	outline: none;
@@ -45,9 +35,6 @@ button {
 		width:100%;
 	}
 
-	ul.sub-navi {
-		display:block;
-	}
 }
 
 /*   Web page   */
@@ -56,14 +43,6 @@ button {
 		font-size:  20px;
 		margin:0 auto;
 		width:80%;
-	}
-
-	ul.sub-navi {
-		display:none;
-	}
-
-	ul.navi li {
-		display:inline;
 	}
 }
 /* <<< ==============  Media Screen End ============= */

@@ -1,6 +1,7 @@
  (function(){
-
-	var navi_list = [ 
+    
+	// set navi list data
+	var navi_datas = [ 
 					{'name':'소화갤러리', 
 					 'sub_navi':[
 								  {'name':'갤러리소개', 'href': 'gallery/intro'},
@@ -29,41 +30,30 @@
 								  {'name':'보도자료', 'href': ''},
 								  {'name':'소화풍경', 'href': ''}
 								]
-					}
+					}];
 
-					];
 
+	// set navi name and content
 	var ul = document.createElement('ul');
-	for(var i in navi_list){ 
-		var menu_info =  navi_list[i];
+	for(var i in navi_datas){ 
+		var navi_data		= navi_datas[i];
+		var sub_navi_datas	= navi_data.sub_navi; 
 
-		var li = document.createElement('li');
-		li.innerHTML = menu_info.name; 
+		var li		 = document.createElement('li');
+		li.innerHTML = navi_data.name; 
+		li.setAttribute('class','navi_menu');
 
+		// set sub-navi name and content
 		var sub_ul = document.createElement('ul');
-		for(var k in menu_info.sub_navi){
-			var sub_menu = menu_info.sub_navi[k]; 
+		for(var k in sub_navi_datas){
+			var sub_a		= document.createElement('a');
+			sub_a.href		= sub_navi_datas[k].href;
+			sub_a.innerHTML = sub_navi_datas[k].name;
 
-			var a = document.createElement('a');
-			a.href		= sub_menu.href;
-			a.innerHTML = sub_menu.name;
-			a.style.textDecoration = 'none';
+			var sub_li		= document.createElement('li');
+			sub_li.setAttribute('class','sub_navi_menu');
 
-			var sub_li = document.createElement('li');
-			sub_li.setAttribute('class','item');
-			sub_li.style.display = 'inline-block';
-			sub_li.style.margin = '10px';
-
-			sub_li.onmouseover = function(){
-				a.style.color = 'white';
-				a.style.fontWeight = 'bolder';
-			};
-			sub_li.onmouseout = function(){
-				a.style.color = 'white'; 
-				a.style.fontWeight = 'normal';
-			};
-
-			sub_li.appendChild(a);
+			sub_li.appendChild(sub_a);
 			sub_ul.appendChild(sub_li);
 		}
 
@@ -73,25 +63,5 @@
 
 	var nav = document.getElementsByTagName('nav')[0];
 	nav.appendChild(ul);
-
-	// media query event handler
-	if (window.matchMedia) {
-	  const mq = window.matchMedia("(min-width: 1060px)");
-	  mq.addListener(WidthChange);
-	  WidthChange(mq);
-	}
-
-	// media query change
-	function WidthChange(mq) {
-	  var navi = document.getElementsByTagName('nav')[0];
-	  if (mq.matches) {
-			navi.style.backgroundColor = 'pink';
-		// window width is at least 500px
-	  } else {
-			navi.style.backgroundColor = 'olive';
-		// window width is less than 500px
-	  }
-
-	}
 
 })();

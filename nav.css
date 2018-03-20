@@ -1,0 +1,68 @@
+
+/* ==============  Common Css Start ============= >>> */
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration:none;
+    color: white;
+}
+
+/* unvisited link */
+a:link {
+	font-weight: normal;
+}
+
+/* visited link */
+a:visited {
+}
+
+/* mouse over link */
+a:hover {
+	font-weight: bold;
+}
+
+/* selected link */
+a:active {
+}
+
+/* <<< ==============  Common Css End ============= */
+/* ==============  Media Screen Start ============= >>> */
+
+/*   Mobile   */
+@media screen and  (max-width: 1060px) {
+	nav { 
+		background-color:pink;
+	}
+
+	li.navi_menu {
+		display: block;
+	}
+
+	li.sub_navi_menu {
+		display: block;
+	}
+
+}
+
+/*   Web page   */
+@media screen and (min-width:1061px) {
+	nav { 
+		background-color:brown;
+	}
+
+	li.navi_menu {
+		display: inline-block;
+		margin: 1rem;
+	}
+
+	li.sub_navi_menu {
+		display: none;
+	}
+
+}
+/* <<< ==============  Media Screen End ============= */

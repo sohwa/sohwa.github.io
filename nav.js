@@ -3,10 +3,10 @@
 	var navi_list = [ 
 					{'name':'소화갤러리', 
 					 'sub_navi':[
-								  {'name':'갤러리소개', 'href': 'gallery/intro.html'},
-								  {'name':'작가소개',	'href': ''},
-								  {'name':'오시는길',	'href': ''},
-								  {'name':'주변안내',	'href': ''}
+								  {'name':'갤러리소개', 'href': 'gallery/intro'},
+								  {'name':'작가소개',	'href': 'gallery/author'},
+								  {'name':'오시는길',	'href': 'gallery/way'},
+								  {'name':'주변안내',	'href': 'gallery/arround'}
 								]
 					},
 					{'name':'작품', 

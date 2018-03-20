@@ -1,4 +1,4 @@
- (function(){
+ window.onload = function(){
     
 	// set navi list data
 	var navi_datas = [ 
@@ -64,4 +64,4 @@
 	var nav = document.getElementsByTagName('nav')[0];
 	nav.appendChild(ul);
 
-})();
+};

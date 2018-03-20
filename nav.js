@@ -1,4 +1,4 @@
- window.onload = function(){
+ var make_navigation = function(){
     
 	// set navi list data
 	var navi_datas = [ 
@@ -65,3 +65,12 @@
 	nav.appendChild(ul);
 
 };
+
+if (
+    document.readyState === "complete" ||
+    (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  make_navigation();
+} else {
+  document.addEventListener("DOMContentLoaded", make_navigation);
+}

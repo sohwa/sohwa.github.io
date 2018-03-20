@@ -39,11 +39,11 @@ a:active {
 		background-color:pink;
 	}
 
-	li.navi_menu {
+	ul.navi>li {
 		display: block;
 	}
 
-	li.sub_navi_menu {
+	ul.sub_navi>li {
 		display: block;
 	}
 
@@ -55,12 +55,12 @@ a:active {
 		background-color:brown;
 	}
 
-	li.navi_menu {
+	ul.navi>li {
 		display: inline-block;
 		margin: 1rem;
 	}
 
-	li.sub_navi_menu {
+	ul.sub_navi>li {
 		display: none;
 	}
 

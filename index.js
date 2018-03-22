@@ -1,3 +1,5 @@
-    window.onclick = function(event) {
+/*    
+window.onclick = function(event) {
         alert('hello');
     }
+    */

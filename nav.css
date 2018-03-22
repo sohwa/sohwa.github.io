@@ -30,11 +30,16 @@ a:hover {
 a:active {
 }
 
+li {
+	cursor: pointer;
+}
+
+
 /* <<< ==============  Common Css End ============= */
 /* ==============  Media Screen Start ============= >>> */
 
 /*   Mobile   */
-@media screen and  (max-width: 1060px) {
+@media screen and  (max-width:10px /*1060px*/) {
 	nav { 
 		background-color:pink;
 	}
@@ -43,25 +48,32 @@ a:active {
 		display: block;
 	}
 
-	ul.sub_navi>li {
+	ul.sub_navi {
 		display: block;
 	}
 
 }
 
 /*   Web page   */
-@media screen and (min-width:1061px) {
+@media screen and (min-width:11px /*1061px*/) {
 	nav { 
 		background-color:brown;
 	}
 
 	ul.navi>li {
 		display: inline-block;
+        background-color: pink;
 		margin: 1rem;
+	}
+
+	ul.sub_navi {
+        background-color:indigo;
+        height: 0;
 	}
 
 	ul.sub_navi>li {
 		display: none;
+        opacity: 0;
 	}
 
 }

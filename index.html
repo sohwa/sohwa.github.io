@@ -12,7 +12,7 @@
 
     <header>
         <nav>
-        
+<!--        
             <ul class="navi">
                 <li>소화갤러리
                 </li>
@@ -24,7 +24,13 @@
                 </li>
             </ul>
             <ul class="sub_navi">
-                <li><a href="gallery/intro">갤러리 소개</a></li>
+                <li>
+                <div>
+                    <img src="https://i.imgur.com/IGRkqNv.jpg" height="50px" width="50px"/>
+                    <br>
+                    <a href="gallery/intro.html">갤러리 소개</a>
+                </div>
+                </li>
                 <li><a href="">작가소개</a></li>
                 <li><a href="">오시는길</a></li>
                 <li><a href="">주변안내</a></li>
@@ -44,13 +50,26 @@
                 <li><a href="">보도자료</a></li>
                 <li><a href="">소화풍경</a></li>
             </ul>
+-->
 
         </nav>
     </header>
     <section>
         <article>
-            <div>&#9776;</div>
             <img src="https://i.imgur.com/IGRkqNv.jpg" height="100px" width="100px"/>
+
+        <div id="map" style="width:200px;height:200px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cb02721f958616d7e3beee427b8e90c"></script>
+
+        <script>
+            var container = document.getElementById('map');
+            var options = {
+                center: new daum.maps.LatLng(33.450701, 126.570667),
+                level: 3
+            };
+
+            var map = new daum.maps.Map(container, options);
+        </script>
         </article>
     </section>
     <footer>

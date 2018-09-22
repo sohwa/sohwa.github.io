@@ -80,14 +80,23 @@
 			
 			var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
 			message += '경도는 ' + latlng.getLng() + ' 입니다';
-	
 			console.log(message);
+	
+
+		   var value = {name: latlng.getLat(, salutation: 'Your Grace'};
+			var jsonString = (JSON.stringify(value));
+			var escapedJsonParameters = escape(jsonString);
+			var appName = 'SampleSwiftCode';
+			var actionType = 'PrintData';
+
+			var url = appName + '://' + actionType + "#" + escapedJsonParameters;
+			document.location.href = url;
+
 		});
         </script>
         </article>
     </section>
     <footer>
-        footer
     </footer>
 
 </div></body>

@@ -1,64 +1,42 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="index.js"></script>
-    <script src="nav.js"></script>
-    <link rel="stylesheet" type="text/css" href="nav.css">
 </head>
-<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false"
+<body style="background:black" oncontextmenu="return false" ondragstart="return false" onselectstart="return false"
         oncopy="return false" oncut="return false" onpaste="return false" >
-    <div id="foundation">
 
-    <header>
-        <nav>
-            <ul class="navi">
-                <li>소화갤러리
-                </li>
-                <li>작품
-                </li>
-                <li>민화교실
-                </li>
-                <li >소화소식
-                </li>
-            </ul>
-            <ul class="sub_navi">
-                <li>
-                <div>
-                    <img src="https://i.imgur.com/IGRkqNv.jpg" height="50px" width="50px"/>
-                    <br>
-                    <a href="gallery/intro.html">갤러리 소개</a>
-                </div>
-                </li>
-                <li><a href="">작가소개</a></li>
-                <li><a href="">오시는길</a></li>
-                <li><a href="">주변안내</a></li>
-            </ul>
-            <ul class="sub_navi">
-                <li><a href="">전통민화</a></li>
-                <li><a href="">응용민화</a></li>
-                <li><a href="">공예민화</a></li>
-                <li><a href="">관화</a></li>
-            </ul>
-            <ul class="sub_navi">
-                <li><a href="">수업알림</a></li>
-                <li><a href="">수업사진</a></li>
-            </ul>
-            <ul class="sub_navi">
-                <li><a href="">전시안내</a></li>
-                <li><a href="">보도자료</a></li>
-                <li><a href="">소화풍경</a></li>
-            </ul>
+    <div id="map" style="width:1000px;height:1000px;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cb02721f958616d7e3beee427b8e90c"></script>
 
-        </nav>
-    </header>
-    <section>
-        <article>
-             <img src="https://i.imgur.com/IGRkqNv.jpg" height="100px" width="100px"/> 
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        var options = { //지도를 생성할 때 필요한 기본 옵션
+            center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+            level: 3 //지도의 레벨(확대, 축소 정도)
+        };
 
-        </article>
-    </section>
-    <footer>
-    </footer>
+        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-</div></body>
+        daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+            
+            // 클릭한 위도, 경도 정보를 가져옵니다 
+            var latlng = mouseEvent.latLng;
+            
+            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니다';
+            console.log(message);
+
+            var value = {name: latlng.getLat(), salutation: 'Your Grace'};
+            var jsonString = (JSON.stringify(value));
+            var escapedJsonParameters = escape(jsonString);
+            var appName = 'SampleSwiftCode';
+            var actionType = 'PrintData';
+
+            var url = window.location.href + "#" + escapedJsonParameters;
+            console.log(url);
+            document.location.href = url;
+
+        });
+    </script>
+
+
+</body>

@@ -94,7 +94,7 @@ var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리�
 			console.log(message);
 	
 
-		   var value = {name: latlng.getLat(, salutation: 'Your Grace'};
+		   var value = {name: latlng.getLat(), salutation: 'Your Grace'};
 			var jsonString = (JSON.stringify(value));
 			var escapedJsonParameters = escape(jsonString);
 			var appName = 'SampleSwiftCode';
@@ -102,9 +102,7 @@ var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리�
 
 			var url = appName + '://' + actionType + "#" + escapedJsonParameters;
             console.log(url);
-            /*
 			document.location.href = url;
-            */
 
 		});
         </script>

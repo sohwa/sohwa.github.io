@@ -69,6 +69,19 @@
             };
 
             var map = new daum.maps.Map(container, options);
+
+			daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+				
+				// 클릭한 위도, 경도 정보를 가져옵니다 
+				var latlng = mouseEvent.latLng;
+				
+				var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, message += '경도는 ' + latlng.getLng() + ' 입니다';
+
+				alert(message);
+				
+				
+			});
+
         </script>
         </article>
     </section>

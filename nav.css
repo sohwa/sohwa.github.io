@@ -34,6 +34,18 @@ li {
 	cursor: pointer;
 }
 
+table {
+	padding: 0;
+	margin:0;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr,td{
+	padding:0;
+	margin:0;
+}
+
 
 /* <<< ==============  Common Css End ============= */
 /* ==============  Media Screen Start ============= >>> */
@@ -41,40 +53,74 @@ li {
 /*   Mobile   */
 @media screen and  (max-width:10px /*1060px*/) {
 	nav { 
-		background-color:pink;
+		background-color:red;
 	}
 
-	ul.navi>li {
+    /*
+	ul.navi li {
 		display: block;
+        background-color: skyblue;
+        margin:1rem;
 	}
 
+    
 	ul.sub_navi {
 		display: block;
 	}
+
+	ul.sub_navi>li {
+		display: block;
+        opacity: 1;
+        filter: alpha(opacity=100); 
+	}
+    */
 
 }
 
 /*   Web page   */
 @media screen and (min-width:11px /*1061px*/) {
 	nav { 
-		background-color:brown;
+		background-color:transparent/*skyblue*/;
 	}
 
-	ul.navi>li {
-		display: inline-block;
-        background-color: pink;
-		margin: 1rem;
+	ul.navi > li:nth-child(1) {
+		background:#c82d00;
+	}
+	ul.navi > li:nth-child(2) {
+		background:#c9ac00;
+	}
+	ul.navi > li:nth-child(3) {
+		background:#e67111;
+	}
+	ul.navi > li:nth-child(4) {
+		background:#a7006a;
 	}
 
+
+	ul.sub_navi>li {
+		display:inline-block;
+		margin-right:1rem;
+	}
+
+/*
+    ul.navi >li > div.sub_navi_title {
+        display: none;
+    }
+*/
+
+/*
 	ul.sub_navi {
-        background-color:indigo;
+        background-color:yellow;
         height: 0;
 	}
 
 	ul.sub_navi>li {
+        background-color:yellow;
 		display: none;
         opacity: 0;
+        filter: alpha(opacity=0);
 	}
+    */
 
 }
 /* <<< ==============  Media Screen End ============= */

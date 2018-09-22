@@ -70,7 +70,7 @@
 
             var map = new daum.maps.Map(container, options);
 
-			daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+			maps.event.addListener(map, 'click', function(mouseEvent) {        
 				
 				// 클릭한 위도, 경도 정보를 가져옵니다 
 				var latlng = mouseEvent.latLng;

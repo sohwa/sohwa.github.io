@@ -43,7 +43,8 @@
             var actionType = 'PrintData';
             */
 
-            var url = location.href + "#" + latlng.getLat();
+            var local_url = (location.href).replace(/#.+/, "");
+            var url = local_url + "#" + latlng.getLat();
             console.log(url);
             document.location.href = url;
 

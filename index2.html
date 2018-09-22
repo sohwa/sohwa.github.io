@@ -2,9 +2,10 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script src="index.js"></script>
+ <!--   <script src="index.js"></script>
     <script src="nav.js"></script>
     <link rel="stylesheet" type="text/css" href="nav.css">
+    -->
 </head>
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false"
         oncopy="return false" oncut="return false" onpaste="return false" >
@@ -12,6 +13,7 @@
 
     <header>
         <nav>
+<!--        
             <ul class="navi">
                 <li>소화갤러리
                 </li>
@@ -49,13 +51,61 @@
                 <li><a href="">보도자료</a></li>
                 <li><a href="">소화풍경</a></li>
             </ul>
+-->
 
         </nav>
     </header>
     <section>
         <article>
-             <img src="https://i.imgur.com/IGRkqNv.jpg" height="100px" width="100px"/> 
+            <!--    <img src="https://i.imgur.com/IGRkqNv.jpg" height="100px" width="100px"/> -->
 
+        <div id="map" style="width:1000px;height:1000px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cb02721f958616d7e3beee427b8e90c"></script>
+
+        <script>
+/*
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+			mapOption = { 
+				center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+				level: 3 // 지도의 확대 레벨
+			};
+
+		var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+*/
+
+var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+var options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+	level: 3 //지도의 레벨(확대, 축소 정도)
+};
+
+var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+		// 지도에 클릭 이벤트를 등록합니다
+		// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+
+		daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+			
+			// 클릭한 위도, 경도 정보를 가져옵니다 
+			var latlng = mouseEvent.latLng;
+			
+			var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+			message += '경도는 ' + latlng.getLng() + ' 입니다';
+			console.log(message);
+	
+
+		   var value = {name: latlng.getLat(), salutation: 'Your Grace'};
+			var jsonString = (JSON.stringify(value));
+			var escapedJsonParameters = escape(jsonString);
+			var appName = 'SampleSwiftCode';
+			var actionType = 'PrintData';
+
+			var url = window.location.href + "#" + escapedJsonParameters;
+            console.log(url);
+			document.location.href = url;
+
+		});
+        </script>
         </article>
     </section>
     <footer>

@@ -100,7 +100,7 @@ var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리�
 			var appName = 'SampleSwiftCode';
 			var actionType = 'PrintData';
 
-			var url = "#" + escapedJsonParameters;
+			var url = window.location.href + "#" + escapedJsonParameters;
             console.log(url);
 			document.location.href = url;
 

@@ -35,13 +35,15 @@
             var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니다';
             console.log(message);
 
+            /*
             var value = {name: latlng.getLat(), salutation: 'Your Grace'};
             var jsonString = (JSON.stringify(value));
             var escapedJsonParameters = escape(jsonString);
             var appName = 'SampleSwiftCode';
             var actionType = 'PrintData';
+            */
 
-            var url = window.location.href + "#" + escapedJsonParameters;
+            var url = window.location.href + "#" + latlng.getLat();
             console.log(url);
             document.location.href = url;
 

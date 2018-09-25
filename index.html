@@ -58,6 +58,7 @@
 				 if (status === daum.maps.services.Status.OK) {
 
 					var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+                     console.log(coords);
 
 					var marker = new daum.maps.Marker({
 						map: map,

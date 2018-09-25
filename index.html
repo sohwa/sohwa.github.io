@@ -49,6 +49,31 @@
             document.location.href = url;
 
         });
+
+        function searchAddress(){
+			var geocoder = new daum.maps.services.Geocoder();
+
+			geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+
+				 if (status === daum.maps.services.Status.OK) {
+
+					var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+					var marker = new daum.maps.Marker({
+						map: map,
+						position: coords
+					});
+
+					var infowindow = new daum.maps.InfoWindow({
+						content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+					});
+					infowindow.open(map, marker);
+
+					map.setCenter(coords);
+				} 
+			}); 
+        }
+
     </script>
 
 </body>

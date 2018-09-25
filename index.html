@@ -32,9 +32,8 @@
             // 클릭한 위도, 경도 정보를 가져옵니다 
             var latlng = mouseEvent.latLng;
             
-            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니다 ~!!!';
+            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니당 ~!!!22';
             console.log(message);
-            console.log(1234);
 
             var local_url = (location.href).replace(/#.+/, "");
             var url = local_url + "#" + latlng.getLat();
@@ -51,7 +50,7 @@
 				 if (status === daum.maps.services.Status.OK) {
 
 					var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-                     console.log(coords);
+                     console.log('주소찾기');
 
 					var marker = new daum.maps.Marker({
 						map: map,

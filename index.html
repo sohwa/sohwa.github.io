@@ -16,7 +16,7 @@
         oncopy="return false" oncut="return false" onpaste="return false" >
 
     <div id="map" style="width:100%; height:100%; " ></div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cb02721f958616d7e3beee427b8e90c"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1cb02721f958616d7e3beee427b8e90c&libraries=services"></script>
 
     <script>
         var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -32,7 +32,7 @@
             // 클릭한 위도, 경도 정보를 가져옵니다 
             var latlng = mouseEvent.latLng;
             
-            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니당 ~!!!22';
+            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니당 ~!!!333';
             console.log(message);
 
             var local_url = (location.href).replace(/#.+/, "");
@@ -41,10 +41,9 @@
             document.location.href = url;
 
         });
+        var geocoder = new daum.maps.services.Geocoder();
 
         var searchAdd = function(){
-			var geocoder = new daum.maps.services.Geocoder();
-
 			geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
 
 				 if (status === daum.maps.services.Status.OK) {

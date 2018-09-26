@@ -47,8 +47,8 @@
             console.log('오빠목!!');
         }
 
-        var searchAdd = function(){
-			geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+        var searchAdd = function(address){
+			geocoder.addressSearch(address, function(result, status) {
 
 				 if (status === daum.maps.services.Status.OK) {
 

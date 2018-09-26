@@ -40,6 +40,20 @@
             console.log(url);
             document.location.href = url;
 
+
+            var coords = new daum.maps.LatLng(latlng.getLat(), latlng.getLng());
+
+            var marker = new daum.maps.Marker({
+                map: map,
+                position: coords
+            });
+
+            var infowindow = new daum.maps.InfoWindow({
+            });
+            infowindow.open(map, marker);
+
+            map.setCenter(coords);
+
         });
         var geocoder = new daum.maps.services.Geocoder();
 
@@ -61,7 +75,7 @@
 					});
 
 					var infowindow = new daum.maps.InfoWindow({
-						content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+						//content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
 					});
 					infowindow.open(map, marker);
 

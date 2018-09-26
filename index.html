@@ -63,7 +63,7 @@
 					detailAddr += ('  지번 주소 : ' + result[0].address.address_name );
 					
 					var local_url = (location.href).replace(/#.+/, "");
-					var url = local_url + "#" + latlng.getLat();
+					var url = local_url + "#" + detailAddr;
 					document.location.href = url;
 
 					// 마커를 클릭한 위치에 표시합니다 
@@ -89,17 +89,12 @@
 			geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 		}
 
-        var log = function(){
-            console.log('오빠목!!');
-        }
-
         var searchAdd = function(address){
 			geocoder.addressSearch(address, function(result, status) {
 
 				 if (status === daum.maps.services.Status.OK) {
 
 					var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-                     console.log('주소찾기');
 
 					deleteAllMarkers();
 					addMarker(coords);

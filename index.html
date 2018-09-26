@@ -63,8 +63,7 @@
 					detailAddr += ('  지번 주소 : ' + result[0].address.address_name );
 					
 					var local_url = (location.href).replace(/#.+/, "");
-					var url = local_url + "#" + detailAddr;
-					//console.log(url);
+					var url = local_url + "#" + latlng.getLat();
 					document.location.href = url;
 
 					// 마커를 클릭한 위치에 표시합니다 

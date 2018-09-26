@@ -44,6 +44,7 @@
 					document.location.href = url;
 
 					// 마커를 클릭한 위치에 표시합니다 
+					var marker = new daum.maps.Marker();
 					marker.setPosition(mouseEvent.latLng);
 					marker.setMap(map);
 
@@ -82,8 +83,6 @@
 						map: map,
 						position: coords
 					});
-
-					marker.setMap(map);
 
 					map.setCenter(coords);
 				} 

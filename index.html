@@ -29,31 +29,29 @@
 
         daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
             
-            // 클릭한 위도, 경도 정보를 가져옵니다 
-            var latlng = mouseEvent.latLng;
             
-            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, 경도는 ' + latlng.getLng() + ' 입니당 ~!!!333';
-            console.log(message);
+			searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
+				if (status === daum.maps.services.Status.OK) {
 
-            var local_url = (location.href).replace(/#.+/, "");
-            var url = local_url + "#" + latlng.getLat();
-            console.log(url);
-            document.location.href = url;
+					var detailAddr = !!result[0].road_address ? '도로명주소 : ' + result[0].road_address.address_name  : '';
+					detailAddr += '  지번 주소 : ' + result[0].address.address_name ';
+					
+					var local_url = (location.href).replace(/#.+/, "");
+					var url = local_url + "#" + detailAddr;
+					console.log(url);
+					document.location.href = url;
 
+					// 마커를 클릭한 위치에 표시합니다 
+					marker.setPosition(mouseEvent.latLng);
+					marker.setMap(map);
 
-            var coords = new daum.maps.LatLng(latlng.getLat(), latlng.getLng());
+					// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
+					infowindow.setContent(content);
+					infowindow.open(map, marker);
+				}   
+			});
 
-            var marker = new daum.maps.Marker({
-                map: map,
-                position: coords
-            });
-
-            var infowindow = new daum.maps.InfoWindow({
-            });
-            infowindow.open(map, marker);
-
-            map.setCenter(coords);
-
+            
         });
         var geocoder = new daum.maps.services.Geocoder();
 

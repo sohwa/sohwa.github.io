@@ -34,7 +34,7 @@
 				if (status === daum.maps.services.Status.OK) {
 
 					var detailAddr = !!result[0].road_address ? '도로명주소 : ' + result[0].road_address.address_name  : '';
-					detailAddr += '  지번 주소 : ' + result[0].address.address_name ';
+					detailAddr += ('  지번 주소 : ' + result[0].address.address_name );
 					
 					var local_url = (location.href).replace(/#.+/, "");
 					var url = local_url + "#" + detailAddr;

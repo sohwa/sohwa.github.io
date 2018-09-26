@@ -104,6 +104,7 @@
 
         function updateUrl(addition_url){
 
+            addition_url = addition_url.replace(/#.+/, "");
             var local_url = (location.href).replace(/#.+/, "");
             var url = local_url + "#" + addition_url;
             document.location.href = url;

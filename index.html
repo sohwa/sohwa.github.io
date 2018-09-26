@@ -62,9 +62,7 @@
 					var detailAddr = !!result[0].road_address ? '도로명주소 : ' + result[0].road_address.address_name  : '';
 					detailAddr += ('  지번 주소 : ' + result[0].address.address_name );
 					
-					var local_url = (location.href).replace(/#.+/, "");
-					var url = local_url + "#" + detailAddr;
-					document.location.href = url;
+                    updateUrl(detailAddr);
 
 					// 마커를 클릭한 위치에 표시합니다 
 					deleteAllMarkers();
@@ -104,6 +102,14 @@
 			}); 
         }
 
+        function updateUrl(addition_url){
+
+            var local_url = (location.href).replace(/#.+/, "");
+            var url = local_url + "#" + addition_url;
+            document.location.href = url;
+        }
+
+        updateUrl('');
 
     </script>
 
